@@ -1,0 +1,56 @@
+📁 Project 2 — Expense Tracker
+
+Overview
+This project is part of the Decode Labs Python Programming Internship. It is a command-line application designed to help users track, organize, and manage their daily expenses efficiently.
+
+Objective
+To build a functional expense management tool that demonstrates core Python concepts such as dynamic accumulators, structured file handling with JSON, category breakdowns, and robust user input validation.
+
+Features
+Add Expenses: Log new expenses with a category and description.
+
+Quick-Add Session: Continuous entry mode for rapidly logging multiple expenses in one go.
+
+Running Total: Real-time summary using the accumulator pattern.
+
+Category Breakdown: Categorized view with visual bars to track spending distribution.
+
+Defensive Coding: Safely handles invalid inputs without crashing.
+
+Persistent Data: Saves all financial entries to expenses.json so data persists between runs.
+
+Concepts Used
+Accumulator variables for real-time totals
+
+while loop controls and sentinel values for continuous logging
+
+Input validation and exception handling (try/except ValueError)
+
+Type casting with float for monetary precision
+
+Data persistence using JSON reading/writing
+
+Modular structure and categorical data breakdown
+
+How to Run
+Ensure Python is installed on your system.
+
+Navigate to the project directory in your terminal.
+
+Run the script using the command: python expense_tracker.py
+
+Follow the interactive menu prompts to log and view your expenses.
+
+Future Enhancements
+Graphical User Interface (GUI) implementation using tkinter or PyQt.
+
+Date ranges, monthly budgeting limits, and alert thresholds.
+
+Exporting financial summaries to CSV or PDF reports.
+
+Relational database integration (SQLite) for high-volume transactions.
+
+Author
+Khushal Parmar
+
+Python Programming Intern, Decode Labs
