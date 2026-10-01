@@ -1,0 +1,103 @@
+"""
+India General Knowledge Quiz Game
+A clean, interactive command-line quiz application written in Python.
+Demonstrates: Data Structures, Control Flow, Functions, and Type Hinting.
+"""
+
+from typing import List, TypedDict
+
+
+class Question(TypedDict):
+    question: str
+    options: List[str]
+    answer: str
+
+
+def get_quiz_data() -> List[Question]:
+    """Returns the list of quiz questions, options, and correct answers."""
+    return [
+        {
+            "question": "1. What is the national animal of India?",
+            "options": ["A. Lion", "B. Bengal Tiger", "C. Elephant", "D. Leopard"],
+            "answer": "B",
+        },
+        {
+            "question": "2. Which city is known as the Silicon Valley of India?",
+            "options": ["A. Mumbai", "B. Hyderabad", "C. Bengaluru", "D. Delhi"],
+            "answer": "C",
+        },
+        {
+            "question": "3. Which is the longest river in India?",
+            "options": ["A. Yamuna", "B. Ganga", "C. Godavari", "D. Brahmaputra"],
+            "answer": "B",
+        },
+    ]
+
+
+def get_user_choice(valid_choices: set[str]) -> str:
+    """Prompts and validates the user's input choice."""
+    while True:
+        user_answer = input("\nYour answer (A/B/C/D): ").strip().upper()
+        if user_answer in valid_choices:
+            return user_answer
+        print("❌ Invalid input! Please enter A, B, C, or D.")
+
+
+def display_score(score: int, total: int) -> None:
+    """Displays final score, percentage, and a performance message."""
+    percentage = (score / total) * 100 if total > 0 else 0
+    print("\n" + "=" * 45)
+    print(f"🎉 QUIZ OVER! Your Final Score: {score}/{total} ({percentage:.1f}%)")
+
+    if percentage == 100:
+        print("🏆 Perfect score! Excellent knowledge of India.")
+    elif percentage >= 60:
+        print("👍 Great effort! You know your India well.")
+    else:
+        print("📚 Good attempt! Keep learning.")
+
+    print("=" * 45)
+
+
+def run_quiz(quiz_data: List[Question]) -> None:
+    """Executes the quiz game loop, checks user input, and calculates score."""
+    score = 0
+    total_questions = len(quiz_data)
+    valid_choices = {"A", "B", "C", "D"}
+
+    print("=" * 45)
+    print("    WELCOME TO THE INDIA GK QUIZ GAME    ")
+    print("=" * 45 + "\n")
+
+    for item in quiz_data:
+        print(item["question"])
+        for option in item["options"]:
+            print(f"   {option}")
+
+        user_answer = get_user_choice(valid_choices)
+
+        if user_answer == item["answer"]:
+            print("✅ Correct answer! (+1 point)\n")
+            score += 1
+        else:
+            print(f"❌ Incorrect! The correct answer was {item['answer']}.\n")
+
+        print("-" * 45)
+
+    display_score(score, total_questions)
+
+
+def main() -> None:
+    """Main application entry point with play-again loop."""
+    questions = get_quiz_data()
+
+    while True:
+        run_quiz(questions)
+        play_again = input("\nWould you like to play again? (Y/N): ").strip().upper()
+        if play_again != "Y":
+            print("\nThank you for playing! Goodbye!\n")
+            break
+
+
+if __name__ == "__main__":
+    main()
