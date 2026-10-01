@@ -62,4 +62,4 @@ Projects built during my Python Developer internship at DecodeLabs.
 
 ---
 
-Built with 💚 by **Khushal Pa**
+Built with 💚 by **Khushal Parmar
